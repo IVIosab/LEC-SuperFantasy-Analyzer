@@ -13,6 +13,7 @@ class App extends React.Component {
   
   render(){
     return (
+      //we need to make a loop to render each team box
       <div className="app gradient-bg flex flex-col h-screen items-center">
         <h1 className='text-white text-4xl m-10'>Statistics</h1>
         <div className='teams flex flex-col w-screen items-center'>
