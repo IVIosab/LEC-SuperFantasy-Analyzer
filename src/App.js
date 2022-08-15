@@ -1,5 +1,7 @@
 import './App.css';
 import React from 'react';
+import images from './utils/images.js'
+
 
 class App extends React.Component {
   constructor(props){
@@ -16,9 +18,11 @@ class App extends React.Component {
         <div className='teams flex flex-col w-screen items-center'>
           <div className='team-1 flex border w-2/3 m-1'> 
             <div className='player-1 flex flex-col w-1/6 items-center'>
+              <img src={images['RGE']['Top']}/>
               <p className='text-white text-4xl'>TOP</p>
             </div>
             <div className='player-2 flex flex-col w-1/6 items-center'>
+            <img src={images['RGE']['Jung']}/>
               <p className='text-white text-4xl'>JGL</p>
             </div>
             <div className='player-3 flex flex-col w-1/6 items-center'>
