@@ -30,7 +30,7 @@ class App extends React.Component {
       rowCards.push(this.renderCard(team, roles[i]))
     }
     return(
-      <div className='row justify-center my-2'>{rowCards}</div>
+      <div className='row justify-content-md-center my-2'>{rowCards}</div>
     );
   }
 
