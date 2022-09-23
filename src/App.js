@@ -1,55 +1,44 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import React from 'react';
-import {images, names} from './utils/utils.js'
-import Card from 'react-bootstrap/Card'
+import {Team} from './components/Team.js'
+import {NavBar} from './components/NavBar.js'
+
 
 class App extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
-      player: ""
-    }
+      team: 'AST'
+    };
+    this.handleSelect = this.handleSelect.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
   
-  renderCard(team, role){
-    return(
-      <Card className='mx-1' bg='dark' text='white' style={{ width: '15rem' }}>
-        <Card.Img variant="top" src={images[team][role]} />
-        <Card.Body>
-          <Card.Title className='text-center'>{names[team][role]}</Card.Title>
-        </Card.Body>
-      </Card>
-    );
+  handleSelect(key){
+    this.setState({ 
+      team: key
+    });
   }
 
-  renderRowCards(team){
-    let roles = ['Top', 'Jung', 'Mid', 'ADC', 'Supp', 'Coach'];
-    let rowCards = []
-    for(let i = 0 ; i < 6 ; i++){
-      rowCards.push(this.renderCard(team, roles[i]))
-    }
-    return(
-      <div className='row justify-content-md-center my-2'>{rowCards}</div>
-    );
-  }
-
-  renderRows(){
-    let teams = ['AST', 'BDS', 'FNC', 'G2', 'MAD', 'MSF', 'RGE', 'SK', 'VIT', 'XL']
-    let rows = []
-    for(let i = 0 ; i < 10 ; i++){
-      rows.push(this.renderRowCards(teams[i]))
-    }
-    return(
-      <div>{rows}</div>
-    );
+  handleClick(){
+    //route to playerStats
   }
 
   render(){
-    let rows = this.renderRows()
-    return (
-      rows
-    );
+    let nav = <NavBar
+      handleSelect={this.handleSelect}
+    />
+    let cardrow = <Team
+      handleClick={this.handleClick}
+      team={this.state.team}
+    />
+    return(
+      <div className='row justify-content-md-center m-2'>
+        {nav}
+        {cardrow}
+      </div>
+    );  
   }
 }
 
