@@ -3,13 +3,14 @@ import './App.css';
 import React from 'react';
 import {Team} from './components/Team.js'
 import {NavBar} from './components/NavBar.js'
+import PlayerStats from './components/PlayerStats';
 
-
-class App extends React.Component {
+class Home extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      team: 'AST'
+      team: '',
+      player: ''
     };
     this.handleSelect = this.handleSelect.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -21,25 +22,41 @@ class App extends React.Component {
     });
   }
 
-  handleClick(){
-    //route to playerStats
+  handleClick(player){
+    this.setState({
+      player: player
+    });
+    console.log(this.state.player)
   }
 
   render(){
-    let nav = <NavBar
-      handleSelect={this.handleSelect}
-    />
-    let cardrow = <Team
-      handleClick={this.handleClick}
-      team={this.state.team}
-    />
     return(
       <div className='row justify-content-md-center m-2'>
-        {nav}
-        {cardrow}
+        <NavBar
+          handleSelect={this.handleSelect}
+        />
+        {
+          this.state.team!==""
+          ?
+          <Team
+            handleClick={this.handleClick}
+            team={this.state.team}
+          />
+          :
+          null
+        }
+        {
+          this.state.player!=="" 
+          ? 
+          <PlayerStats
+            player={this.state.player}
+          /> 
+          : 
+          null
+        }
       </div>
     );  
   }
 }
 
-export default App;
+export default Home;

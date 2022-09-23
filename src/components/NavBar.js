@@ -13,7 +13,7 @@ export function NavBar(props){
         )
     }
     return (
-      <Nav justify onSelect={props.handleSelect} variant="pills" defaultActiveKey="AST">
+      <Nav justify onSelect={props.handleSelect} variant="pills" defaultActiveKey="">
         {items}
       </Nav>
     );
