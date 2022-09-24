@@ -95,7 +95,7 @@ const images = {
 const names = {
     "RGE": {"Logo": "Rouge", "Top": "Odoamne", "Jung": "Malrang", "Mid": "Larssen", "ADC": "Comp", "Supp": "Trymbi", "Coach": "fredy122"},
     "MAD": {"Logo": "Mad Lions", "Top": "Armut", "Jung": "Elyoya", "Mid": "Nisqy", "ADC": "UNF0RGIVEN", "Supp": "Kaiser", "Coach": "Mac"},
-    "G2": {"Logo": "G2", "Top": "BrokenBlade", "Jung": "Jankos", "Mid": "caPs", "ADC": "Flakked", "Supp": "Targamas", "Coach": "DylanFalco"},
+    "G2": {"Logo": "G2", "Top": "Broken Blade", "Jung": "Jankos", "Mid": "caPs", "ADC": "Flakked", "Supp": "Targamas", "Coach": "Dylan Falco"},
     "MSF": {"Logo": "Misfits", "Top": "Irrelevant", "Jung": "Zanzarah", "Mid": "Vetheo", "ADC": "Neon", "Supp": "Mersa", "Coach": "Carter"},
     "XL": {"Logo": "Excel", "Top": "Finn", "Jung": "Markoon", "Mid": "Nukeduck", "ADC": "Patrik", "Supp": "Mikyx", "Coach": "YoungBuck"},
     "FNC": {"Logo": "Fnatic", "Top": "Wunder", "Jung": "Razork", "Mid": "Humanoid", "ADC": "Upset", "Supp": "Hylissang", "Coach": "YamatoCannon"},

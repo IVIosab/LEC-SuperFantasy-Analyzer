@@ -26,7 +26,6 @@ class Home extends React.Component {
     this.setState({
       player: player
     });
-    console.log(this.state.player)
   }
 
   render(){
