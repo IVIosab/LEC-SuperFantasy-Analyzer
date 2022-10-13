@@ -50,48 +50,64 @@ function BestItems(days){
 }
 
 function PlayerStats(props) {
-  const [data, setdata] = useState(null);
+  const [data, setData] = useState(null);
+  const [series, setSeries] = useState(null);
+  const [options, setOptions] = useState(null);
+  const [days, setDays] = useState(null);
+  const [avgscore, setAvgscore] = useState(null);
+  console.log('test')
   useEffect(() => {
-    fetch_data(props.player).then((datax)=>setdata(datax))
+    fetch_data(props.player).then((datax)=>{
+      setData(datax)
+      let curPlayer = datax[0]
+      setDays(
+        curPlayer.days.length
+      )
+      console.log(days)
+      setAvgscore(
+        AverageScore(curPlayer.scores)/days
+      )
+      console.log(avgscore)
+      let bestItems = BestItems(curPlayer.items)
+      console.log(bestItems)
+      setOptions( {
+        chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: bestItems.items,
+        }
+      })
+      setSeries ([{
+        data: bestItems.scores
+      }])
+    })
   },[props]);
   /*
   TODO: Fix charts not getting updated for different players
   */
-  let curPlayer = {days: [0], scores: [0], items: [{"test": 0}]};
-  if(data!=null){
-    curPlayer = data[0]
-  }
-  let days = curPlayer.days.length
-  let averageScore = AverageScore(curPlayer.scores)/days
-  let bestItems = BestItems(curPlayer.items)
-  let options = {
-    chart: {
-      type: 'bar',
-      height: 350
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 4,
-        horizontal: true,
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    xaxis: {
-      categories: bestItems.items,
-    }
-  }
-  let series = [{
-    data: bestItems.scores
-  }]  
+  
   return(
     <div>
       <h1 className='row justify-content-md-center m-2'>{data==null?"Loading...":data[0].name}</h1>
       <h2 className='row justify-content-md-center m-2'>Days Played: {days}</h2>
-      <h2 className='row justify-content-md-center m-2'>Average Score: {averageScore}</h2>
+      <h2 className='row justify-content-md-center m-2'>Average Score: {avgscore}</h2>
        <div id="chart">
+       {options ? 
         <Chart options={options} series={series} type="bar" height={350} />
+        :
+        <p>Loading...</p>
+       }
       </div>
     </div>
   );  
