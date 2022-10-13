@@ -31,7 +31,7 @@ A Simple web app that visualizes the LEC Superfantasy data and statistics in a u
 
 
 
-### Built With
+## Built With
 
 * [React](https://reactjs.org/)
 * [Bootstrap](https://getbootstrap.com/)
@@ -50,7 +50,7 @@ You can test the project via the deployed web apps or you can clone the repo and
     * Run on terminal using "npm start"
 - WebApp: 
     * Check the deployed web app for the analyzer
-    * [LEC Superfantasy Analyzer]()
+    * [LEC Superfantasy Analyzer](https://lec-superfantasy-analyzer.vercel.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
